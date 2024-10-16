@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.20)
+project(template)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_CXX_COMPILER clang++)
+
+if(DEFINED ENV{CLANGD_PARAMS})
+  string(REPLACE "\n" " " EXTRA_ARGS $ENV{CLANGD_PARAMS})
+  add_compile_options(${EXTRA_ARGS})
+endif()
+
+add_compile_options(-Wall -Wextra)
+add_executable(template template.cpp)
