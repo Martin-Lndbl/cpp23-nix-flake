@@ -35,3 +35,5 @@
 .cache
 */build
 */_build
+
+*/compile_commands.json
