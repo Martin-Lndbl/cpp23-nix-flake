@@ -21,7 +21,7 @@ mkdir -p "$1/build"
 cd "$1/build" || exit 1
 
 # Run CMake and generate the compile_commands.json file
-cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+CLANGD_FIX=1 cmake ..
 
 # Patch compile_commands.json
 sed -i 's/\\\"//g' compile_commands.json
