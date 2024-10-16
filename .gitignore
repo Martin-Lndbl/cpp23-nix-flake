@@ -34,3 +34,4 @@
 .direnv
 .cache
 */build
+*/_build

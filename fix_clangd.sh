@@ -17,11 +17,12 @@ if [ ! -f "$1/CMakeLists.txt" ]; then
     fi
 fi
 
-mkdir -p "$1/build"
-cd "$1/build" || exit 1
+# We use _build so this doesn't effect the usual build process
+mkdir -p "$1/_build"
+cd "$1/_build" || exit 1
 
 # Run CMake and generate the compile_commands.json file
 CLANGD_FIX=1 cmake ..
 
 # Patch compile_commands.json
-sed -i 's/\\\"//g' compile_commands.json
+sed 's/\\\"//g' < compile_commands.json > ../compile_commands.json

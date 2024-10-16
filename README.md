@@ -11,6 +11,7 @@ Unfortunately, the clang 18 wrapper still uses gcc13Stdenv, including the old st
   * Add the following to your CMakeLists.txt
 ```cmake
 if(DEFINED ENV{CLANGD_PARAMS})
+  set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
   string(REPLACE "\n" " " EXTRA_ARGS $ENV{CLANGD_PARAMS})
   add_compile_options(${EXTRA_ARGS})
 endif()
