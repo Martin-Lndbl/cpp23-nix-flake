@@ -1,5 +1,5 @@
 {
-  description = "Concepts of C++ flake";
+  description = "Clang with stdlib23";
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
