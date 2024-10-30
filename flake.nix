@@ -18,7 +18,7 @@
         pkgs = import nixpkgs {
           inherit system;
           overlays = [
-            (self: super: rec {
+            (self: super: {
               clang_18 = super.clang_18.override {
                 gccForLibs = pkgs.gcc14Stdenv.cc.cc;
               };
@@ -27,7 +27,7 @@
         };
       in
       {
-        packages.default = pkgs.clang_18;
+        packages.clang = pkgs.clang_18;
 
         devShell =
           pkgs.mkShell.override
@@ -37,7 +37,6 @@
             {
               buildInputs = with pkgs; [
                 cmake
-                gtest
                 clang-manpages
                 clang_18
                 clang-tools_18
