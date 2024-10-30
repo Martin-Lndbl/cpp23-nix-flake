@@ -27,6 +27,8 @@
         };
       in
       {
+        packages.default = pkgs.clang_18;
+
         devShell =
           pkgs.mkShell.override
             {
